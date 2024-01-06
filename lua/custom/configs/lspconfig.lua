@@ -12,7 +12,7 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
--- c# lsp config
+-- C# lsp config
 local pid = vim.fn.getpid()
 local omnisharp_bin = "/home/fm39hz/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"
 
@@ -39,4 +39,10 @@ lspconfig.csharp_ls.setup {
   capabilities = capabilities,
 }
 
+-- C++ lspconfig
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  cmd = {"clangd"},
+  filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
+}
 -- lspconfig.pyright.setup { blabla}

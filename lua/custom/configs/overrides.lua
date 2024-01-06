@@ -25,6 +25,9 @@ M.treesitter = {
 
 M.mason = {
   ensure_installed = {
+    -- shell stuff
+    "bash",
+
     -- lua stuff
     "lua-language-server",
     "stylua",
