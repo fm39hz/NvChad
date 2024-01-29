@@ -26,7 +26,7 @@ M.treesitter = {
 M.mason = {
   ensure_installed = {
     -- shell stuff
-    "bash",
+    "bash-language-server",
 
     -- lua stuff
     "lua-language-server",
@@ -38,6 +38,8 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "eslint-lsp",
+    "tailwindcss-language-server",
 
     -- c/cpp stuff
     "clangd",
