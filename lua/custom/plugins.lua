@@ -68,6 +68,9 @@ local plugins = {
     "kdheepak/lazygit.nvim",
     cmd = 'LazyGit',
   },
+  {
+    "windwp/nvim-ts-autotag",
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
