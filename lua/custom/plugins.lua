@@ -70,7 +70,26 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-ts-autotag").setup({
+        enable = true,
+        enable_rename = true,
+        enable_close = true,
+        enable_close_on_slash = true,
+        filetypes = { "html" , "xml", "ts", "tsx", "js", "jsx" },
+      })
+    end,
   },
+  {
+    "elentok/format-on-save.nvim",
+    config = function()
+      require("format-on-save").setup({
+        experiments = {
+          partial_update = 'diff',
+        }
+      })
+    end,
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
