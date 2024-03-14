@@ -15,7 +15,6 @@ M.ui = {
   },
   statusline = {
     theme = "vscode_colored",
-    separator_style = "round"
   },
   hl_override = highlights.override,
   hl_add = highlights.add,
