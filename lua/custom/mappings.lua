@@ -16,7 +16,6 @@ M.debug = {
     ["<f5>"] = {"<cmd> lua require('custom.configs.dapconfig').continue() <CR>", desc = "Continue"},
     ["<f10>"] = {"<cmd> lua require('custom.configs.dapconfig').step_over() <CR>", desc = "Step over"},
     ["<f11>"] = {"<cmd> lua require('custom.configs.dapconfig').step_into() <CR>", desc = "Step into"},
-
   },
 }
 M.window = {
@@ -35,6 +34,6 @@ M.moveLines = {
   i = {
     ["<A-k>"] = {"<esc><cmd>m .-2<cr>==gi", desc = "Move line up"},
     ["<A-j>"] = {"<esc><cmd>m .+1<cr>==gi", desc = "Move line down"},
-  }
+    }
   }
 return M
