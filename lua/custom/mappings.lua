@@ -20,10 +20,10 @@ M.debug = {
 }
 M.window = {
   n = {
-    ["<C-k>"] = {"<cmd> resize +2 <cr>", desc = "Increase window height"},
-    ["<C-j>"] = {"<cmd> resize -2 <cr>", desc = "Decrease window height"},
-    ["<C-l>"] = {"<cmd> vertical resize -2 <cr>", desc = "Decrease window width"},
-    ["<C-h>"] = {"<cmd> vertical resize +2 <cr>", desc = "Increase window width"},
+    ["<A-K>"] = {"<cmd> resize +2 <cr>", desc = "Increase window height"},
+    ["<A-J>"] = {"<cmd> resize -2 <cr>", desc = "Decrease window height"},
+    ["<A-L>"] = {"<cmd> vertical resize -2 <cr>", desc = "Decrease window width"},
+    ["<A-H>"] = {"<cmd> vertical resize +2 <cr>", desc = "Increase window width"},
     }
   }
 M.moveLines = {
