@@ -48,18 +48,19 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-  },
-  {
-    "Hoffs/omnisharp-extended-lsp.nvim",
+    event = "VeryLazy"
   },
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy"
   },
   {
     "theHamsta/nvim-dap-virtual-text",
+    event = "VeryLazy"
   },
   {
     "MunifTanjim/nui.nvim",
+    event = "VeryLazy"
   },
   {
     "folke/noice.nvim",
@@ -72,6 +73,11 @@ local plugins = {
   {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
+    dependencies = {
+      {
+        "nvim-treesitter"
+      },
+    },
     config = function()
       require("nvim-ts-autotag").setup({
         enable = true,
@@ -95,6 +101,7 @@ local plugins = {
   },
   {
     "nvim-lua/plenary.nvim",
+    event = "VeryLazy"
   },
   {
     "rcarriga/nvim-notify",
@@ -121,8 +128,9 @@ local plugins = {
   },
   {
     "echasnovski/mini.animate",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
+      vim.cmd('set scrolloff=12')
       local mouse_scrolled = false
       for _, scroll in ipairs({ "Up", "Down" }) do
         local key = "<ScrollWheel" .. scroll .. ">"
