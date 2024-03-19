@@ -12,10 +12,30 @@ M.disabled = {
 M.code = {
   n = {
     ["<leader>gg"] = {"<cmd> LazyGit <CR>"},
-    ["<leader>b"] = {"<cmd> lua require('custom.configs.dapconfig').toggle_breakpoint() <CR>", "Toggle breakpoint"},
-    ["<f5>"] = {"<cmd> lua require('custom.configs.dapconfig').continue() <CR>", "Continue"},
-    ["<f10>"] = {"<cmd> lua require('custom.configs.dapconfig').step_over() <CR>", "Step over"},
-    ["<f11>"] = {"<cmd> lua require('custom.configs.dapconfig').step_into() <CR>", "Step into"},
+    ["<leader>b"] = {
+      function ()
+        require('custom.configs.dapconfig').toggle_breakpoint()
+      end
+      , "Toggle breakpoint"
+    },
+    ["<f5>"] = {
+      function ()
+        require('custom.configs.dapconfig').continue()
+      end
+      , "Continue"
+    },
+    ["<f10>"] = {
+      function ()
+        require('custom.configs.dapconfig').step_over()
+      end
+      , "Step over"
+    },
+    ["<f11>"] = {
+      function ()
+        require('custom.configs.dapconfig').step_into()
+      end
+      , "Step into"
+    },
   },
 }
 M.window = {
