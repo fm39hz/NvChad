@@ -64,30 +64,6 @@ local plugins = {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    config = function()
-      require("noice").setup({
-        lsp = {
-          overrides = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = {
-            enabled = false,
-          },
-          signature = {
-            enabled = false,
-          }
-        },
-        presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
-        },
-      })
-    end
   },
   {
     "kdheepak/lazygit.nvim",
@@ -95,7 +71,7 @@ local plugins = {
   },
   {
     "windwp/nvim-ts-autotag",
-    lazy = false,
+    event = "InsertEnter",
     config = function()
       require("nvim-ts-autotag").setup({
         enable = true,
@@ -108,7 +84,7 @@ local plugins = {
   },
   {
     "elentok/format-on-save.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("format-on-save").setup({
         experiments = {
@@ -122,14 +98,14 @@ local plugins = {
   },
   {
     "rcarriga/nvim-notify",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       vim.notify = require("notify")
     end,
   },
   {
     "stevearc/dressing.nvim",
-    lazy = false,
+    event = "VeryLazy",
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.select = function(...)
