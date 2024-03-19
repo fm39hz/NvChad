@@ -63,10 +63,15 @@ local plugins = {
   },
   {
     "folke/noice.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function()
       require("noice").setup({
         lsp = {
+          overrides = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
           hover = {
             enabled = false,
           },
@@ -124,7 +129,7 @@ local plugins = {
   },
   {
     "stevearc/dressing.nvim",
-    lazy = true,
+    lazy = false,
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.select = function(...)
@@ -138,6 +143,38 @@ local plugins = {
       end
     end,
   },
+  {
+    "echasnovski/mini.animate",
+    lazy = false,
+    config = function()
+      local mouse_scrolled = false
+      for _, scroll in ipairs({ "Up", "Down" }) do
+        local key = "<ScrollWheel" .. scroll .. ">"
+        vim.keymap.set({ "", "i" }, key, function()
+          mouse_scrolled = true
+          return key
+        end, { expr = true })
+      end
+      local animate = require("mini.animate")
+      animate.setup({
+        resize = {
+          timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+        },
+        scroll = {
+          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
+          subscroll = animate.gen_subscroll.equal({
+            predicate = function(total_scroll)
+              if mouse_scrolled then
+                mouse_scrolled = false
+                return false
+              end
+              return total_scroll > 1
+            end,
+          }),
+        },
+      })
+    end
+  }
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
