@@ -29,28 +29,8 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
--- C# lsp config
-local pid = vim.fn.getpid()
-local omnisharp_bin = "/home/fm39hz/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll"
 
-local omnisharp_extended = require("omnisharp_extended")
-lspconfig.omnisharp.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "dotnet", omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
-  handlers = {
-    ["textDocument/definition"] = omnisharp_extended.handler,
-  },
-  -- OmniSharp options
-  enable_editorconfig_support = true,
-  enable_roslyn_analyzers = false,
-  organize_imports_on_format = true,
-  sdk_include_prereleases = true,
-  analyze_open_documents_only = false,
-  use_tabs = true,
-  tab_size = 4,
-  indentation_size = 1,
-}
+-- C# lsp config
 lspconfig.csharp_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
