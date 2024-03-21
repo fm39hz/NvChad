@@ -5,6 +5,9 @@ M.general = {
   n = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
   },
+  v = {
+    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+  },
 }
 M.disabled = {
 }
@@ -62,6 +65,13 @@ M.window = {
     ["<A-J>"] = {"<cmd> resize -2 <cr>", "Decrease window height"},
     ["<A-L>"] = {"<cmd> vertical resize -2 <cr>", "Decrease window width"},
     ["<A-H>"] = {"<cmd> vertical resize +2 <cr>", "Increase window width"},
+  },
+  i = {
+    ["<A-K>"] = {"<esc><cmd> resize +2 <cr>==gi", "Increase window height"},
+    ["<A-J>"] = {"<esc><cmd> resize -2 <cr>==gi", "Decrease window height"},
+    ["<A-L>"] = {"<esc><cmd> vertical resize -2 <cr>==gi", "Decrease window width"},
+    ["<A-H>"] = {"<esc><cmd> vertical resize +2 <cr>==gi", "Increase window width"},
+
   }
 }
 M.moveLines = {
@@ -72,6 +82,10 @@ M.moveLines = {
   i = {
     ["<A-k>"] = {"<esc><cmd>m .-2<cr>==gi", "Move line up"},
     ["<A-j>"] = {"<esc><cmd>m .+1<cr>==gi", "Move line down"},
-  }
+  },
+  v = {
+    ["<A-k>"] = {"<cmd>m .-2<cr>==gv", "Move line up"},
+    ["<A-j>"] = {"<cmd>m .+1<cr>==gv", "Move line down"},
+  },
 }
 return M
