@@ -14,6 +14,9 @@ M.treesitter = {
     "markdown_inline",
     "c_sharp"
   },
+  autotag = {
+    enable = true,
+  },
   indent = {
     enable = true,
     size = 4,

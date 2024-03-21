@@ -31,6 +31,9 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    }
   },
 
   {
@@ -69,24 +72,6 @@ local plugins = {
   {
     "kdheepak/lazygit.nvim",
     cmd = 'LazyGit',
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
-    dependencies = {
-      {
-        "nvim-treesitter"
-      },
-    },
-    config = function()
-      require("nvim-ts-autotag").setup({
-        enable = true,
-        enable_rename = true,
-        enable_close = true,
-        enable_close_on_slash = true,
-        filetypes = { "html" , "xml", "ts", "tsx", "js", "jsx" },
-      })
-    end,
   },
   {
     "elentok/format-on-save.nvim",
