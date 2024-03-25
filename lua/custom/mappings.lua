@@ -71,7 +71,6 @@ M.window = {
     ["<A-J>"] = {"<esc><cmd> resize -2 <cr>==gi", "Decrease window height"},
     ["<A-L>"] = {"<esc><cmd> vertical resize -2 <cr>==gi", "Decrease window width"},
     ["<A-H>"] = {"<esc><cmd> vertical resize +2 <cr>==gi", "Increase window width"},
-
   }
 }
 M.moveLines = {
