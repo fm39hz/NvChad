@@ -50,7 +50,6 @@ M.mason = {
 
     -- c# stuff
     "csharp-language-server",
-    "omnisharp",
     "netcoredbg",
     "csharpier"
   },

@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd" }
+local servers = { "html", "cssls", "tsserver", "clangd", "csharp_ls" }
 
 require("noice").setup({
   lsp = {
@@ -30,16 +30,10 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- C# lsp config
-lspconfig.csharp_ls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
 -- C++ lspconfig
 lspconfig.clangd.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   cmd = {"clangd"},
   filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" }
 }
--- lspconfig.pyright.setup { blabla}
