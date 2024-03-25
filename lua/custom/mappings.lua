@@ -84,8 +84,8 @@ M.moveLines = {
     ["<A-j>"] = {"<esc><cmd>m .+1<cr>==gi", "Move line down"},
   },
   v = {
-    ["<A-k>"] = {"<cmd>m .-2<cr>==gv", "Move line up"},
-    ["<A-j>"] = {"<cmd>m .+1<cr>==gv", "Move line down"},
-  },
+    ["<A-k>"] = {":m '<-2<cr>gv=gv", "Move line up"},
+    ["<A-j>"] = {":m '>+1<cr>gv=gv", "Move line down"},
+  }
 }
 return M
