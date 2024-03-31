@@ -29,7 +29,17 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
+lspconfig.omnisharp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
+    enable_import_completion = true,
+    organize_imports_on_format = true,
+    enable_roslyn_analyzers = true,
+    root_dir = function ()
+      return vim.loop.cwd()
+    end,
+}
 -- C++ lspconfig
 lspconfig.clangd.setup {
   on_attach = on_attach,
