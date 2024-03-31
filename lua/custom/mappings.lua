@@ -3,10 +3,10 @@ local M = {}
 
 M.general = {
   n = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    [";"] = { ":", "Enter command mode", opts = { nowait = true } },
   },
   v = {
-    [";"] = { ":", "enter command mode", opts = { nowait = true } },
+    [";"] = { ":", "Enter command mode", opts = { nowait = true } },
   },
 }
 M.disabled = {
@@ -57,6 +57,13 @@ M.code = {
       end,
       "Show the declaration of current symbol"
     },
+  },
+}
+M.compiler = {
+  n = {
+    ["<f6>"] = { "<cmd>CompilerOpen<cr>", "Enter Compiler", opts = { noremap = true, silent = true } },
+    ["<S-f6>"] = { "<cmd>CompilerStop<cr> .. <cmd>CompilerRedo<cr>", "Exit Compiler", opts = { noremap = true, silent = true } },
+    ["<S-f7>"] = { "<cmd>CompilerToggleResults<cr>", "Exit Compiler", opts = { noremap = true, silent = true } },
   },
 }
 M.window = {
