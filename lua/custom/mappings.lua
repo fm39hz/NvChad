@@ -4,6 +4,7 @@ local M = {}
 M.general = {
   n = {
     [";"] = { ":", "Enter command mode", opts = { nowait = true } },
+    ["cd"] = { "<cmd> Oil <cr>", "Open cwd in oil", opts = { nowait = true} },
   },
   v = {
     [";"] = { ":", "Enter command mode", opts = { nowait = true } },

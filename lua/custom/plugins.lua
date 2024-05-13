@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -33,7 +33,7 @@ local plugins = {
     opts = overrides.treesitter,
     dependencies = {
       "windwp/nvim-ts-autotag",
-    }
+    },
   },
 
   {
@@ -51,19 +51,19 @@ local plugins = {
   },
   {
     "mfussenegger/nvim-dap",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "rcarriga/nvim-dap-ui",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "theHamsta/nvim-dap-virtual-text",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "MunifTanjim/nui.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "folke/noice.nvim",
@@ -71,28 +71,28 @@ local plugins = {
   },
   {
     "kdheepak/lazygit.nvim",
-    cmd = 'LazyGit',
+    cmd = "LazyGit",
   },
   {
     "elentok/format-on-save.nvim",
     event = "VeryLazy",
     config = function()
-      require("format-on-save").setup({
+      require("format-on-save").setup {
         experiments = {
-          partial_update = 'diff',
-        }
-      })
+          partial_update = "diff",
+        },
+      }
     end,
   },
   {
     "nvim-lua/plenary.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
     config = function()
-      vim.notify = require("notify")
+      vim.notify = require "notify"
     end,
   },
   {
@@ -101,12 +101,12 @@ local plugins = {
     init = function()
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
+        require("lazy").load { plugins = { "dressing.nvim" } }
         return vim.ui.select(...)
       end
       ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
+        require("lazy").load { plugins = { "dressing.nvim" } }
         return vim.ui.input(...)
       end
     end,
@@ -115,23 +115,23 @@ local plugins = {
     "echasnovski/mini.animate",
     event = "VeryLazy",
     config = function()
-      vim.cmd('set scrolloff=12')
+      vim.cmd "set scrolloff=12"
       local mouse_scrolled = false
-      for _, scroll in ipairs({ "Up", "Down" }) do
+      for _, scroll in ipairs { "Up", "Down" } do
         local key = "<ScrollWheel" .. scroll .. ">"
         vim.keymap.set({ "", "i" }, key, function()
           mouse_scrolled = true
           return key
         end, { expr = true })
       end
-      local animate = require("mini.animate")
-      animate.setup({
+      local animate = require "mini.animate"
+      animate.setup {
         resize = {
-          timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
+          timing = animate.gen_timing.linear { duration = 100, unit = "total" },
         },
         scroll = {
-          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
-          subscroll = animate.gen_subscroll.equal({
+          timing = animate.gen_timing.linear { duration = 150, unit = "total" },
+          subscroll = animate.gen_subscroll.equal {
             predicate = function(total_scroll)
               if mouse_scrolled then
                 mouse_scrolled = false
@@ -139,14 +139,14 @@ local plugins = {
               end
               return total_scroll > 1
             end,
-          }),
+          },
         },
-      })
-    end
+      }
+    end,
   },
   {
     "Zeioth/compiler.nvim",
-    cmd = {"CompilerOpen", "CompilerToggleResults", "CompilerRedo"},
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
     dependencies = { "stevearc/overseer.nvim" },
     opts = {},
   },
@@ -159,9 +159,16 @@ local plugins = {
         direction = "bottom",
         min_height = 25,
         max_height = 25,
-        default_detail = 1
+        default_detail = 1,
       },
     },
+  },
+  {
+    "stevearc/oil.nvim",
+    lazy = false,
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   -- To make a plugin not be loaded
   -- {
